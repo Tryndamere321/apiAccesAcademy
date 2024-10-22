@@ -1,6 +1,6 @@
 package az.edu.itbrains.accesacademyapiblog.exceptions;
 
-//import az.websuper.crm.payloads.AuthError;
+import az.edu.itbrains.accesacademyapiblog.payloads.AuthError;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,13 +20,13 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)
             throws IOException, ServletException {
-//
-//        AuthError re = new AuthError(HttpStatus.UNAUTHORIZED.value(), "Authentication failed");
-//        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-//        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//        OutputStream responseStream = response.getOutputStream();
-//        ObjectMapper mapper = new ObjectMapper();
-//        mapper.writeValue(responseStream, re);
-//        responseStream.flush();
+
+        AuthError re = new AuthError(HttpStatus.UNAUTHORIZED.value(), "Authentication failed");
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        OutputStream responseStream = response.getOutputStream();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(responseStream, re);
+        responseStream.flush();
     }
 }
